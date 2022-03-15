@@ -1,5 +1,5 @@
 import flask
-import os
+import subprocess
 from flask_cors import CORS, cross_origin
 from flask import jsonify
 app = flask.Flask(__name__)
@@ -9,15 +9,12 @@ app.config['CORS_HEADERS'] = 'Content-Type'
 
 @app.route('/api/domain/<domain>', methods=['GET'])
 def show_domain(domain):
-    test = {
-        "domain": domain,
-        "yes": "bien"
-    }
     print("--------------------------------")
-    print(os.popen('ls').read())
+    command = "cd ../test/theHarvester ; python3 theHarvester.py -d " + domain + " -l 50 -b all "
+    ret = subprocess.run(command, capture_output=True, shell=True)
+    print(ret.stdout.decode())
     print("--------------------------------")
-    return jsonify(test)
 
-
+    return jsonify(ret.stdout.decode())
 
 app.run()
