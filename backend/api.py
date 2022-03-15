@@ -1,11 +1,13 @@
 import flask
-
+import os
+from flask_cors import CORS, cross_origin
 app = flask.Flask(__name__)
-app.config["DEBUG"] = True
-
-
-@app.route('/', methods=['GET'])
-def home():
-    return "<h1>Distant Reading Archive</h1><p>This site is a prototype API for distant reading of science fiction novels.</p>"
+cors = CORS(app)
+app.config['CORS_HEADERS'] = 'Content-Type'
+@cross_origin()
+@app.route('/api/domain/<domain>', methods=['GET'])
+def show_user_profile(domain):
+    print(domain)
+    return domain
 
 app.run()
