@@ -23,4 +23,17 @@ def show_domain(domain):
 
     return jsonify(data)
 
+@app.route('/api/Pseudo/<Pseudo>', methods=['GET'])
+def show_Pseudo(Pseudo):
+    print("--------------------------------")
+    print(Pseudo)
+    command = "cd ./sher ; python sherlock.py dada"
+    ret = subprocess.run(command, capture_output=True, shell=True)
+    print(ret.stdout.decode())
+    print("--------------------------------")
+
+    return jsonify(ret.stdout.decode())
+    
 app.run()
+
+
