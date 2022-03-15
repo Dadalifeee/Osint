@@ -1,0 +1,43 @@
+apikeys:
+  binaryedge:
+    key:
+
+  bing:
+    key:
+
+  censys:
+    id:
+    secret:
+
+  fullhunt:
+    key:
+
+  github:
+    key:
+
+  hunter:
+    key: 2f4cb0fc26e557d3482bacd2c5873154c2756010
+
+  intelx:
+    key: 9df61df0-84f7-4dc7-b34c-8ccfb8646ace
+
+  pentestTools:
+    key:
+
+  projectDiscovery:
+    key:
+
+  rocketreach:
+    key:
+
+  securityTrails:
+    key:
+
+  shodan:
+    key: oCiMsgM6rQWqiTvPxFHYcExlZgg7wvTt
+
+  spyse:
+    key:
+
+  zoomeye:
+    key:
