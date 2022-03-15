@@ -1,5 +1,4 @@
 function sendDomain() {
-  console.log("pute");
   let message = $('#inputDomaine').val();
   console.log('%cindex.html line:132 message', 'color: #007acc;', message);
   if (message != "") {
@@ -11,10 +10,10 @@ function sendDomain() {
               'Access-Control-Allow-Origin': '*',
               "content-type": "application/json"
           }
-      }).then((response) => {
-          console.log(response);
-      }).catch((err) => {
-          console.log(err);
-      })
+      }).then(function (response) {
+        return response.text();
+      }).then(function (text) {
+          console.log(text); 
+      });
   }
 };
