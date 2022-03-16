@@ -72,6 +72,13 @@
               </md-list-item>
 
               <md-list-item>
+                <router-link to="domain">
+                  <i class="material-icons">domain</i>
+                  <p>Domaine</p>
+                </router-link>
+              </md-list-item>
+
+              <md-list-item>
                 <router-link to="email">
                   <i class="material-icons">email</i>
                   <p>Email</p>
