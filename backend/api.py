@@ -3,6 +3,7 @@ import subprocess
 from flask_cors import CORS, cross_origin
 from flask import jsonify
 import json
+
  
 
 app = flask.Flask(__name__)
@@ -27,11 +28,11 @@ def show_domain(domain):
 def show_Pseudo(Pseudo):
     print("--------------------------------")
     print(Pseudo)
-    command = "cd ./sher ; python sherlock.py dada"
+    command = "cd ./sher && python sherlock.py " + Pseudo
     ret = subprocess.run(command, capture_output=True, shell=True)
     print(ret.stdout.decode())
     print("--------------------------------")
-
+    
     return jsonify(ret.stdout.decode())
     
 app.run()
