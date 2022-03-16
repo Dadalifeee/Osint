@@ -5,6 +5,7 @@ import Landing from "./views/Landing.vue";
 import Domain from "./views/Domain.vue";
 import Login from "./views/Login.vue";
 import Email from "./views/Email.vue";
+import Pseudo from "./views/Pseudo.vue";
 import MainNavbar from "./layout/MainNavbar.vue";
 import MainFooter from "./layout/MainFooter.vue";
 
@@ -51,6 +52,15 @@ export default new Router({
       path: "/email",
       name: "email",
       components: { default: Email, header: MainNavbar, footer: MainFooter },
+      props: {
+        header: { colorOnScroll: 400 },
+        footer: { backgroundColor: "black" }
+      }
+    },
+    {
+      path: "/pseudo",
+      name: "pseudo",
+      components: { default: Pseudo, header: MainNavbar, footer: MainFooter },
       props: {
         header: { colorOnScroll: 400 },
         footer: { backgroundColor: "black" }

@@ -34,7 +34,7 @@ def show_domain(domain):
 def show_pseudo(pseudo):
     print("--------------------------------")
     print(pseudo)
-    command = f"cd sher && py -m sherlock.py {pseudo}"
+    command = f"cd sher && python3 sherlock.py {pseudo}"
     ret = subprocess.run(command, capture_output=True, shell=True)
     print(ret.stdout.decode())
     print("--------------------------------")
