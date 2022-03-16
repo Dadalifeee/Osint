@@ -54,8 +54,35 @@
           </div>
         </div>
       </div>
-      
     </div>
+    <table v-if="dataTheHarvester !== null" class="table table-striped table-bordered">
+      <thead>
+        <tr>
+          <th>asns</th>
+          <th>emails</th>
+          <th>hosts</th>
+          <th>interesting_urls</th>
+          <th>ips</th>
+          <th>linkedin_people</th>
+          <th>shodan</th>
+          <th>trello_urls</th>
+          <th>twitter_people</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr v-for="(harvest, index) in dataTheHarvester" :key="index">
+              <td>{{harvest.asns}}</td>
+              <td>{{harvest.emails}}</td>
+              <td>{{harvest.hosts}}</td>
+              <td>{{harvest.interesting_urls}}</td>
+              <td>{{harvest.ips}}</td>
+              <td>{{harvest.linkedin_people}}</td>
+              <td>{{harvest.shodan}}</td>
+              <td>{{harvest.trello_urls}}</td>
+              <td>{{harvest.twitter_people}}</td>
+          </tr>
+      </tbody>
+  </table>
   </div>
 </template>
 
@@ -67,7 +94,17 @@ export default {
     return {
       inputDomaine: null,
       inputPseudo:null,
-      inputEmail:null
+      inputEmail:null,
+      selected: {},
+      dataTheHarvester: null,
+      dataSherlock: null,
+      users: [
+        { firstName: 'Frank', lastName: 'Murphy', email: 'frank.murphy@test.com', role: 'User' },
+        { firstName: 'Vic', lastName: 'Reynolds', email: 'vic.reynolds@test.com', role: 'Admin' },
+        { firstName: 'Gina', lastName: 'Jabowski', email: 'gina.jabowski@test.com', role: 'Admin' },
+        { firstName: 'Jessi', lastName: 'Glaser', email: 'jessi.glaser@test.com', role: 'User' },
+        { firstName: 'Jay', lastName: 'Bilzerian', email: 'jay.bilzerian@test.com', role: 'User' }
+      ]
     };
   },
   methods: {
@@ -76,7 +113,9 @@ export default {
         .get(`http://127.0.0.1:5000/api/domain/${this.inputDomaine}`)
         .then((response) => {
           // JSON responses are automatically parsed.
-          console.log(response.data);;
+          console.log(response.data);
+          this.dataTheHarvester = response.data
+
         })
         .catch((e) => {
           console.log(e);;
@@ -84,10 +123,9 @@ export default {
     },
     sendEmail() {
       axios
-        .get(`http://127.0.0.1:5000/api/domain/${this.inputEmail}`)
+        .get(`http://127.0.0.1:5000/api/email/${this.inputEmail}`)
         .then((response) => {
-          // JSON responses are automatically parsed.
-          console.log(response.data);;
+          console.log(response.data);
         })
         .catch((e) => {
           console.log(e);;
@@ -95,15 +133,23 @@ export default {
     },
     sendPseudo() {
       axios
-        .get(`http://127.0.0.1:5000/api/domain/${this.inputPseudo}`)
+        .get(`http://127.0.0.1:5000/api/pseudo/${this.inputPseudo}`)
         .then((response) => {
           // JSON responses are automatically parsed.
-          console.log(response.data);;
+          this.dataSherlock = response.data;
+          console.log(response.data);
         })
         .catch((e) => {
           console.log(e);;
         });
     },
+    getClass: ({ id }) => ({
+        'md-primary': id === 2,
+        'md-accent': id === 3
+      }),
+    onSelect (item) {
+      this.selected = item
+    }
   },
 };
 </script>

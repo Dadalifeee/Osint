@@ -29,24 +29,20 @@ def show_domain(domain):
 
     return jsonify(data)
 
-@app.route('/api/Pseudo/<Pseudo>', methods=['GET'])
-def show_Pseudo(Pseudo):
+@app.route('/api/pseudo/<pseudo>', methods=['GET'])
+def show_pseudo(pseudo):
     print("--------------------------------")
-    print(Pseudo)
-    command = "cd ./sher && python sherlock.py " + Pseudo
+    print(pseudo)
+    command = "cd ./sher && python3 sherlock.py " + pseudo
     ret = subprocess.run(command, capture_output=True, shell=True)
     print(ret.stdout.decode())
     print("--------------------------------")
     
     return jsonify(ret.stdout.decode())
     
-app.run()
-
-
-
 @app.route('/api/email/<email>', methods=['GET'])
 def find_by_mail(email):
-    command = f"cd email && py ghunt.py email {email}"
+    command = f"cd email && python3 ghunt.py email {email}"
     print("--------------------------------")
     print(command)
     result = os.popen(command).read()
