@@ -3,9 +3,9 @@
 
 Initialiser le front
 ````
-cd frontend
+cd front
 npm install
-node app.js
+npm run serve
  `````
 Initialiser le back
 ````
