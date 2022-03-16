@@ -1,9 +1,14 @@
+from cProfile import run
+from re import sub
+from tabnanny import check
+from unittest import result
 import flask
 import subprocess
 from flask_cors import CORS, cross_origin
 from flask import jsonify
 import json
 
+import os
  
 
 app = flask.Flask(__name__)
@@ -38,3 +43,16 @@ def show_Pseudo(Pseudo):
 app.run()
 
 
+
+@app.route('/api/email/<email>', methods=['GET'])
+def find_by_mail(email):
+    command = f"cd email && py ghunt.py email {email}"
+    print("--------------------------------")
+    print(command)
+    result = os.popen(command).read()
+    print("-----\"---------------------------")
+    result_file = f"./email/result_{email.split('@')[0]}.json"
+    f = open(result_file, encoding='utf-8')
+    return json.dumps(f.read(), ensure_ascii=False).encode('utf8')
+
+app.run()
