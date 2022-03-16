@@ -6,20 +6,20 @@ apikeys:
     key:
 
   censys:
-    id:
-    secret:
+    id: 92897318-2b99-4feb-a23a-0e4296af9583
+    secret: tGUN3cz0hJI1kczjezKK7PU1Hwzaa1lQ
 
   fullhunt:
-    key:
+    key: 2d003cb4-e39d-4af0-83da-489beeca2fbc
 
   github:
-    key:
+    key: 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
 
   hunter:
-    key: 2f4cb0fc26e557d3482bacd2c5873154c2756010
+    key: a9a18e203f16b5336e253fe864067b62e6456013
 
   intelx:
-    key: 9df61df0-84f7-4dc7-b34c-8ccfb8646ace
+    key:
 
   pentestTools:
     key:
@@ -31,7 +31,7 @@ apikeys:
     key:
 
   securityTrails:
-    key:
+    key: 4ahK6tKgGdCRT16tGpLt6UhRg6Vs2stG
 
   shodan:
     key: oCiMsgM6rQWqiTvPxFHYcExlZgg7wvTt
