@@ -22,7 +22,7 @@ export default new Router({
     },
     {
       path: "/landing",
-      name: "landing",
+      name: "Landing",
       components: { default: Landing, header: MainNavbar, footer: MainFooter },
       props: {
         header: { colorOnScroll: 400 },
@@ -38,8 +38,8 @@ export default new Router({
       }
     },
     {
-      path: "/profile",
-      name: "profile",
+      path: "/email",
+      name: "email",
       components: { default: Profile, header: MainNavbar, footer: MainFooter },
       props: {
         header: { colorOnScroll: 400 },
