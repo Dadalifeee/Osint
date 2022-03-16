@@ -27,7 +27,7 @@ def show_domain(domain):
 def show_Pseudo(Pseudo):
     print("--------------------------------")
     print(Pseudo)
-    command = "cd ./sher ; python sherlock.py dada"
+    command = "cd ./sher ; python3 sherlock.py dada"
     ret = subprocess.run(command, capture_output=True, shell=True)
     print(ret.stdout.decode())
     print("--------------------------------")
