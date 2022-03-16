@@ -10,6 +10,6 @@ npm run serve
 Initialiser le back
 ````
 cd backend
-python3 -r requirements.txt
+pip3 install -r requirements.txt
 python3 api.py
  `````
