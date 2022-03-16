@@ -44,7 +44,7 @@
               </div>
             </div>
           </div>
-          <TableVue
+          <TableVueDomain
             v-if="dataTheHarvester !== null"
             :dataTheHarvester="dataTheHarvester"
           />
@@ -56,7 +56,7 @@
 </template>
 
 <script>
-import TableVue from "./components/TableVue";
+import TableVueDomain from "./components/TableVueDomain";
 import axios from "axios";
  
 export default {
@@ -80,7 +80,7 @@ export default {
     }
   },
    components: {
-    TableVue,
+    TableVueDomain,
   },
   data() {
     return {
