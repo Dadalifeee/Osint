@@ -6,13 +6,7 @@
           <div
             class="md-layout-item md-size-50 md-small-size-70 md-xsmall-size-100"
           >
-            <h1 class="title">Rechercher par pseudo.</h1>
-            <h4>
-              Every landing page needs a small description after the big bold
-              title, that's why we added this text here. Add here all the
-              information that can make you or your product create the first
-              impression.
-            </h4>
+            <h1 class="title">Rechercher par pseudo</h1>
           </div>
         </div>
       </div>
@@ -63,7 +57,7 @@ export default {
   props: {
     header: {
       type: String,
-      default: require("@/assets/img/bg7.jpg")
+      default: require("@/assets/img/fond.jpg")
     },
     teamImg1: {
       type: String,

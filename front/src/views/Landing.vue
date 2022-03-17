@@ -6,12 +6,12 @@
           <div
             class="md-layout-item md-size-50 md-small-size-70 md-xsmall-size-100"
           >
-            <h1 class="title">Your Story Starts With Us.</h1>
+            <h1 class="title">Tahos.</h1>
             <h4>
-              Every landing page needs a small description after the big bold
-              title, that's why we added this text here. Add here all the
-              information that can make you or your product create the first
-              impression.
+              Tahos est un outil d’osint qui regroupe plusieurs api, cet outil permet de faciliter l'accès à des informations personnelles telles que l’email, le pseudo et aussi les informations liées à un nom de domaine.
+
+
+
             </h4>
             <br />
             <md-button
@@ -31,7 +31,7 @@
             <div
               class="md-layout-item md-size-66 md-xsmall-size-100 mx-auto text-center"
             >
-              <h2 class="title text-center">Let's talk product</h2>
+              <h2 class="title text-center">À propos</h2>
               <h5 class="description">
                 Bienvenue sur notre projet, notre objectif est de facilité l’attaque de reconnaissance en rassemblant plusieurs outils d’OSINT (TheHarvester, Ghunt, Sherlock, Virustotal).
                 Il suffit de rentrer un nom de domaine et Thalos s’occupe du reste, 
@@ -267,7 +267,7 @@ export default {
   props: {
     header: {
       type: String,
-      default: require("@/assets/img/bg7.jpg")
+      default: require("@/assets/img/fond.jpg")
     },
     teamImg1: {
       type: String,

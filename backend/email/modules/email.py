@@ -201,7 +201,7 @@ def email_hunt(email):
             print("[+] \"Activated Google services\" :")
             print(''.join(["- " + x.capitalize() for x in services]))
             f = open(result_file,"a", encoding='utf-8')
-            f.write("{{\"Activated_Google_Services\" : \"" + ''.join(["- " + x.capitalize() for x in services]) + "\"}},")
+            f.write("{\"Activated_Google_Services\" : \"" + ''.join(["- " + x.capitalize() for x in services]) + "\"},")
 
         except KeyError:
             ytb_hunt = True
@@ -226,7 +226,7 @@ def email_hunt(email):
                     for channel in channels:
                         print(f"'- [{channel['name']}] {channel['profile_url']}'")
                         f = open(result_file,"a", encoding='utf-8')
-                        f.write(f" \"{channel['name']} : \"{channel['profile_url']}\"")
+                        f.write(f" {{\"{channel['name']} : \"{channel['profile_url']}\"}},")
                     possible_usernames = ytb.extract_usernames(channels)
                     if possible_usernames:
                         print("[+] \"Possible usernames found\" :")
@@ -273,7 +273,7 @@ def email_hunt(email):
             if events:
                 gcalendar.out(events)
                 f = open(result_file,"a", encoding='utf-8')
-                f.write(f"{{\"Google_Calendar\" : \"{events}\"}}")
+                f.write(f"{{\"Google_Calendar\" : \"{events}\"}},")
             else:
                 print("=> No recent events found.")
         else:
