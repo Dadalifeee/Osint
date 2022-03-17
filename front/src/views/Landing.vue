@@ -6,12 +6,12 @@
           <div
             class="md-layout-item md-size-50 md-small-size-70 md-xsmall-size-100"
           >
-            <h1 class="title">Your Story Starts With Us.</h1>
+            <h1 class="title">Tahos.</h1>
             <h4>
-              Every landing page needs a small description after the big bold
-              title, that's why we added this text here. Add here all the
-              information that can make you or your product create the first
-              impression.
+              Tahos est un outil d’osint qui regroupe plusieurs api, cet outil permet de faciliter l'accès à des informations personnelles telles que l’email, le pseudo et aussi les informations liées à un nom de domaine.
+
+
+
             </h4>
             <br />
             <md-button
@@ -31,13 +31,13 @@
             <div
               class="md-layout-item md-size-66 md-xsmall-size-100 mx-auto text-center"
             >
-              <h2 class="title text-center">Let's talk product</h2>
+              <h2 class="title text-center">À propos</h2>
               <h5 class="description">
-                This is the paragraph where you can write more details about
-                your product. Keep you user engaged by providing meaningful
-                information. Remember that by this time, the user is curious,
-                otherwise he wouldn't scroll to get here. Add a button if you
-                want the user to see more.
+                Nous avons remarqué que la plupart des solutions web d’osint était payante nous avons voulu rendre cela accessible et ludique.
+
+L'intérêt d’un tel outils est de retrouver toute les infos et avoir conscience de où est placé notre data,
+vérifier s' il y a de la falsification de données.
+Cela permet aussi d’avoir une certaine gouvernance de nos données.
               </h5>
             </div>
           </div>
@@ -285,7 +285,7 @@ export default {
   props: {
     header: {
       type: String,
-      default: require("@/assets/img/bg7.jpg")
+      default: require("@/assets/img/fond.jpg")
     },
     teamImg1: {
       type: String,
