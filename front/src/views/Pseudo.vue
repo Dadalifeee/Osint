@@ -6,7 +6,7 @@
           <div
             class="md-layout-item md-size-50 md-small-size-70 md-xsmall-size-100"
           >
-            <h1 class="title">Rechercher par nom de domaine.</h1>
+            <h1 class="title">Rechercher par pseudo.</h1>
             <h4>
               Every landing page needs a small description after the big bold
               title, that's why we added this text here. Add here all the
@@ -24,9 +24,9 @@
             <div
               class="md-layout-item md-size-66 md-xsmall-size-100 mx-auto text-center"
             >
-              <h2 class="title text-center">Domain Search</h2>
+              <h2 class="title text-center">Pseudo Search</h2>
               <h5 class="description">
-                Chercher des adresses ip des mails des noms de personnes de l'entreprise depuis un nom de domaine
+                Chercher pseudo
               </h5>
             </div>
           </div>
@@ -35,18 +35,17 @@
               <div class="md-layout-item md-size-66 mx-auto">
                 <div class="form-group text-center">
                   <md-field>
-                    <md-input v-model="inputDomaine" placeholder="Domaine"></md-input>
-                  </md-field>
-                  <md-button class="md-raised md-success mt-3" v-on:click="sendDomain()"
-                    >Search</md-button
-                  >
+              <md-input v-model="inputPseudo" placeholder="Pseudo"></md-input>
+            </md-field>
+            <md-button class="md-raised md-success mt-3" v-on:click="sendPseudo()"
+              >Search</md-button
+            >
                 </div>
               </div>
             </div>
           </div>
-          <TableVueDomain
-            v-if="dataTheHarvester !== null"
-            :dataTheHarvester="dataTheHarvester"
+          <TableVuePseudo
+            :dataPseudo="dataPseudo"
           />
         </div>
       </div>
@@ -56,7 +55,7 @@
 </template>
 
 <script>
-import TableVueDomain from "./components/TableVueDomain";
+import TableVuePseudo from "./components/TableVuePseudo";
 import axios from "axios";
  
 export default {
@@ -80,15 +79,15 @@ export default {
     }
   },
    components: {
-    TableVueDomain,
+    TableVuePseudo,
   },
   data() {
     return {
       name: null,
-      email: null,
+      pseudo: null,
       message: null,
-      inputDomaine: null,
-      dataTheHarvester: null,
+      inputPseudo: null,
+      dataPseudo: null,
     };
   },
   computed: {
@@ -99,14 +98,12 @@ export default {
     }
   },
   methods: {
-    sendDomain() {
+    sendPseudo() {
       axios
-        .get(`http://127.0.0.1:5000/api/domain/${this.inputDomaine}`)
+        .get(`http://127.0.0.1:5000/api/pseudo/${this.inputPseudo}`)
         .then((response) => {
-          // JSON responses are automatically parsed.
           console.log(response.data);
-          this.dataTheHarvester = response.data
-
+          this.dataPseudo = response.data.replace(/[[+]]/g, "<br>")
         })
         .catch((e) => {
           console.log(e);;

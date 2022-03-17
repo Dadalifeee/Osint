@@ -6,7 +6,7 @@
           <div
             class="md-layout-item md-size-50 md-small-size-70 md-xsmall-size-100"
           >
-            <h1 class="title">Rechercher par nom de domaine.</h1>
+            <h1 class="title">Rechercher par email.</h1>
             <h4>
               Every landing page needs a small description after the big bold
               title, that's why we added this text here. Add here all the
@@ -24,9 +24,9 @@
             <div
               class="md-layout-item md-size-66 md-xsmall-size-100 mx-auto text-center"
             >
-              <h2 class="title text-center">Domain Search</h2>
+              <h2 class="title text-center">Email Search</h2>
               <h5 class="description">
-                Chercher des adresses ip des mails des noms de personnes de l'entreprise depuis un nom de domaine
+                Chercher email
               </h5>
             </div>
           </div>
@@ -35,18 +35,17 @@
               <div class="md-layout-item md-size-66 mx-auto">
                 <div class="form-group text-center">
                   <md-field>
-                    <md-input v-model="inputDomaine" placeholder="Domaine"></md-input>
-                  </md-field>
-                  <md-button class="md-raised md-success mt-3" v-on:click="sendDomain()"
-                    >Search</md-button
-                  >
+              <md-input v-model="inputEmail" placeholder="Email"></md-input>
+            </md-field>
+            <md-button class="md-raised md-success mt-3" v-on:click="sendEmail()"
+              >Search</md-button
+            >
                 </div>
               </div>
             </div>
           </div>
-          <TableVueDomain
-            v-if="dataTheHarvester !== null"
-            :dataTheHarvester="dataTheHarvester"
+          <TableVueEmail
+            :dataEmail="dataEmailPreview"
           />
         </div>
       </div>
@@ -56,7 +55,7 @@
 </template>
 
 <script>
-import TableVueDomain from "./components/TableVueDomain";
+import TableVueEmail from "./components/TableVueEmail";
 import axios from "axios";
  
 export default {
@@ -80,15 +79,16 @@ export default {
     }
   },
    components: {
-    TableVueDomain,
+    TableVueEmail,
   },
   data() {
     return {
       name: null,
       email: null,
       message: null,
-      inputDomaine: null,
-      dataTheHarvester: null,
+      inputEmail: null,
+      dataEmail: null,
+      dataEmailPreview: [],
     };
   },
   computed: {
@@ -99,14 +99,16 @@ export default {
     }
   },
   methods: {
-    sendDomain() {
+    sendEmail() {
       axios
-        .get(`http://127.0.0.1:5000/api/domain/${this.inputDomaine}`)
+        .get(`http://127.0.0.1:5000/api/email/${this.inputEmail}`)
         .then((response) => {
-          // JSON responses are automatically parsed.
           console.log(response.data);
-          this.dataTheHarvester = response.data
-
+          this.dataEmail = response.data
+          const tests = this.dataEmail.split(',')
+          for(let i in tests) {
+            this.dataEmailPreview.push(JSON.parse(tests[i]))
+          }
         })
         .catch((e) => {
           console.log(e);;

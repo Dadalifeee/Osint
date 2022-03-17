@@ -65,13 +65,6 @@
               </li>
 
               <md-list-item>
-                <router-link to="landing">
-                  <i class="material-icons">content_paste</i>
-                  <p>A propos</p>
-                </router-link>
-              </md-list-item>
-
-              <md-list-item>
                 <router-link to="domain">
                   <i class="material-icons">domain</i>
                   <p>Domaine</p>
@@ -85,36 +78,14 @@
                 </router-link>
               </md-list-item>
 
-              <md-list-item
-                href="https://twitter.com/CreativeTim"
-                target="_blank"
-              >
-                <i class="fab fa-twitter"></i>
-                <p class="hidden-lg">Twitter</p>
-                <md-tooltip md-direction="bottom"
-                  >Follow us on Twitter</md-tooltip
-                >
+              <md-list-item>
+                <router-link to="pseudo">
+                  <i class="material-icons">person</i>
+                  <p>Pseudo</p>
+                </router-link>
               </md-list-item>
-              <md-list-item
-                href="https://www.facebook.com/CreativeTim"
-                target="_blank"
-              >
-                <i class="fab fa-facebook-square"></i>
-                <p class="hidden-lg">Facebook</p>
-                <md-tooltip md-direction="bottom"
-                  >Like us on Facebook</md-tooltip
-                >
-              </md-list-item>
-              <md-list-item
-                href="https://www.instagram.com/CreativeTimOfficial"
-                target="_blank"
-              >
-                <i class="fab fa-instagram"></i>
-                <p class="hidden-lg">Instagram</p>
-                <md-tooltip md-direction="bottom"
-                  >Follow us on Instagram</md-tooltip
-                >
-              </md-list-item>
+
+              
             </md-list>
           </div>
         </div>
