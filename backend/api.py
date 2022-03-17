@@ -11,6 +11,12 @@ import json
 import os
 import vt
  
+import httpx
+
+from holehe.modules.social_media.snapchat import snapchat
+
+
+
 
 app = flask.Flask(__name__)
 cors = CORS(app)
@@ -61,5 +67,17 @@ def virus_total(url):
     print(str(result.to_dict()))
     print("--------------------------------")
     return jsonify(result.to_dict())
+
+@app.route('/api/mail/<mail>', methods=['GET'])
+async def mail_holehe(mail):
+    print("--------------------------------")
+    print(mail)
+    command = f"cd holehe && holehe {mail}"
+    ret = subprocess.run(command, capture_output=True, shell=True)
+    print(ret.stdout.decode())
+    print("--------------------------------")
+    
+    return jsonify(ret.stdout.decode())
+
 
 app.run()

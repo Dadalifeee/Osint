@@ -21,7 +21,7 @@
             >
               <h2 class="title text-center">Domain Search</h2>
               <h5 class="description">
-                Chercher des adresses ip des mails des noms de personnes de l'entreprise depuis un nom de domaine
+                Chercher des informations depuis une nom de domaine
               </h5>
             </div>
           </div>
@@ -92,6 +92,23 @@ export default {
         backgroundImage: `url(${this.header})`
       };
     }
+  },
+  created() {
+  axios.interceptors.request.use((config) => {
+      // trigger 'loading=true' event here
+      return config;
+    }, (error) => {
+      // trigger 'loading=false' event here
+      return Promise.reject(error);
+    });
+
+    axios.interceptors.response.use((response) => {
+      // trigger 'loading=false' event here
+      return response;
+    }, (error) => {
+      // trigger 'loading=false' event here
+      return Promise.reject(error);
+    });
   },
   methods: {
     sendDomain() {
