@@ -55,7 +55,7 @@
         </div>
       </div>
     </div>
-    <TableVue
+    <TableVueDomain
       :dataTheHarvester="test"
     />
   </div>
@@ -63,11 +63,11 @@
 
 <script>
 import axios from "axios";
-import TableVue from "./TableVue";
+import TableVueDomain from "./TableVueDomain";
 
 export default {
   components: {
-    TableVue
+    TableVueDomain
   },
   data() {
     return {
