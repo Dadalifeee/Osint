@@ -45,7 +45,7 @@
             </div>
           </div>
           <TableVueEmail
-            :dataEmail="dataEmail"
+            :dataEmail="dataEmailPreview"
           />
         </div>
       </div>
@@ -88,6 +88,7 @@ export default {
       message: null,
       inputEmail: null,
       dataEmail: null,
+      dataEmailPreview: [],
     };
   },
   computed: {
@@ -104,8 +105,10 @@ export default {
         .then((response) => {
           console.log(response.data);
           this.dataEmail = response.data
-          this.dataEmail
-
+          const tests = this.dataEmail.split(',')
+          for(let i in tests) {
+            this.dataEmailPreview.push(JSON.parse(tests[i]))
+          }
         })
         .catch((e) => {
           console.log(e);;

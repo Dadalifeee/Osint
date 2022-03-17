@@ -65,13 +65,6 @@
               </li>
 
               <md-list-item>
-                <router-link to="landing">
-                  <i class="material-icons">content_paste</i>
-                  <p>A propos</p>
-                </router-link>
-              </md-list-item>
-
-              <md-list-item>
                 <router-link to="domain">
                   <i class="material-icons">domain</i>
                   <p>Domaine</p>
