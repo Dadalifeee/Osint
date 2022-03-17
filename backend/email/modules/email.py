@@ -200,6 +200,8 @@ def email_hunt(email):
                 ytb_hunt = True
             print("[+] \"Activated Google services\" :")
             print(''.join(["- " + x.capitalize() for x in services]))
+            f = open(result_file,"a", encoding='utf-8')
+            f.write("{{\"Activated_Google_Services\" : \"" + ''.join(["- " + x.capitalize() for x in services]) + "\"}},")
 
         except KeyError:
             ytb_hunt = True
@@ -220,20 +222,22 @@ def email_hunt(email):
                 if confidence:
                     print(f"[+] \"YouTube channel (confidence => {confidence}%) \":")
                     f = open(result_file,"a", encoding='utf-8')
-                    f.write(f"{{\"YouTube channel confidence\" : \"{confidence}%\"}},")
+                    f.write(f"{{\"YouTube_channel_confidence\" : \"{confidence}%\"}},")
                     for channel in channels:
                         print(f"'- [{channel['name']}] {channel['profile_url']}'")
+                        f = open(result_file,"a", encoding='utf-8')
+                        f.write(f" \"{channel['name']} : \"{channel['profile_url']}\"")
                     possible_usernames = ytb.extract_usernames(channels)
                     if possible_usernames:
                         print("[+] \"Possible usernames found\" :")
                         f = open(result_file,"a", encoding='utf-8')
-                        f.write(f"{{\"Possible usernames\" : \"{possible_usernames}\"}},")
+                        f.write(f"{{\"Possible_usernames\" : \"{possible_usernames}\"}},")
                         for username in possible_usernames:
                             print(f"\"- {username}\"")
                 else:
                     print("[-] \"YouTube channel not found.\"")
                     f = open(result_file,"a", encoding='utf-8')
-                    f.write(f"{{\"Youtube channel\" : \"Not found\"}},")
+                    f.write(f"{{\"Youtube_channel\" : \"Not found\"}},")
 
         # TODO: return gpics function output here
         #gpics(gaiaID, client, cookies, config.headers, config.regexs["albums"], config.regexs["photos"],
@@ -246,7 +250,7 @@ def email_hunt(email):
             confidence, locations = gmaps.get_confidence(geolocator, reviews, config.gmaps_radius)
             print(f"[+] \"Probable location (confidence => {confidence})\" :")
             f = open(result_file,"a", encoding='utf-8')
-            f.write(f"{{\"Probable location confidence\" : \"{confidence}\"}},")
+            f.write(f"{{\"Probable_location_confidence\" : \"{confidence}\"}},")
 
             loc_names = []
             for loc in locations:
@@ -269,12 +273,12 @@ def email_hunt(email):
             if events:
                 gcalendar.out(events)
                 f = open(result_file,"a", encoding='utf-8')
-                f.write(f"{{\"Google Calendar\" : \"{events}\"}}")
+                f.write(f"{{\"Google_Calendar\" : \"{events}\"}}")
             else:
                 print("=> No recent events found.")
         else:
             print("[-] No public Google Calendar.")
             f = open(result_file,"a", encoding='utf-8')
-            f.write(f"{{\"Google Calendar\" : \"No public calendar\"}}")
+            f.write(f"{{\"Google_Calendar\" : \"No public calendar\"}}")
         
         
