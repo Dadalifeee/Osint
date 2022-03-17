@@ -64,7 +64,7 @@ def email_hunt(email):
     count = len(data['matches'])
     print(f"\"{count} account found !\"")
     f = open(result_file,"a", encoding='utf-8')
-    f.write(f"{{\"Account matches\" : \"{count}\"}},")
+    f.write(f"{{\"Account_matches\" : \"{count}\"}},")
 
     for user in data["matches"]:
         gaiaID = user["personId"][0]
@@ -77,12 +77,12 @@ def email_hunt(email):
         
         if name:
             f = open(result_file,"a", encoding='utf-8')
-            f.write(f"{{\"Accounts Name\" : \"{name}\"}},")
+            f.write(f"{{\"Accounts_Name\" : \"{name}\"}},")
             print(f"\"Name\" : \"{name}\"")
         else:
             if "name" not in infos:
                 f = open(result_file,"a", encoding='utf-8')
-                f.write(f"{{\"Accounts Name\" : \"Couldn't find name\"}},")
+                f.write(f"{{\"Accounts_Name\" : \"Couldn't find name\"}},")
                 print("\"Couldn't find name\"")
             else:
                 for i in range(len(infos["name"])):
@@ -139,15 +139,15 @@ def email_hunt(email):
         try:
             timestamp = int(infos["metadata"]["lastUpdateTimeMicros"][:-3])
             last_edit = datetime.utcfromtimestamp(timestamp).strftime("%Y/%m/%d %H:%M:%S (UTC)")
-            print(f"{{\"Last profile edit\" : \"{last_edit}\"}}")
+            print(f"{{\"Last_profile_edit\" : \"{last_edit}\"}}")
             f = open(result_file,"a", encoding='utf-8')
-            f.write(f"{{\"Last profile edit\" : \"{last_edit}\"}},")
+            f.write(f"{{\"Last_profile_edit\" : \"{last_edit}\"}},")
 
         except KeyError:
             last_edit = None
             print(f"{{\"Last profile edit\" : \"Not found\"}}")
             f = open(result_file,"a", encoding='utf-8')
-            f.write(f"{{\"Last profile edit\" : \"Not found\"}},")
+            f.write(f"{{\"Last_profile_edit\" : \"Not found\"}},")
 
         canonical_email = ""
         emails = update_emails(account["emails_set"], infos)
@@ -160,18 +160,18 @@ def email_hunt(email):
 
         print(f"\"Email\" : \"{email}{canonical_email}''Gaia ID' : '{gaiaID}\"")
         f = open(result_file,"a", encoding='utf-8')
-        f.write(f"{{\"Email\" : \"{email}{canonical_email}\", \"Gaia ID\" : \"{gaiaID}\"}},")
+        f.write(f"{{\"Email\" : \"{email}{canonical_email}\"}}, {{\"Gaia_ID\" : \"{gaiaID}\"}},")
 
         if emails:
             print(f"\"Contact emails\" : \"{', '.join(map(str, emails.values()))}\"")
             f = open(result_file,"a", encoding='utf-8')
-            f.write(f"{{\"Contact emails\" : \"{', '.join(map(str, emails.values()))}\"}},")
+            f.write(f"{{\"Contact_emails\" : \"{', '.join(map(str, emails.values()))}\"}},")
 
         phones = account["phones"]
         if phones:
-            print(f"\"Contact phones\" : \"{phones}\"")
+            print(f"\"Contact_phones\" : \"{phones}\"")
             f = open(result_file,"a", encoding='utf-8')
-            f.write(f"{{\"Contact phones\" : \"{phones}\"}},")
+            f.write(f"{{\"Contact_phones\" : \"{phones}\"}},")
 
         # is bot?
         if "extendedData" in infos:
@@ -179,16 +179,16 @@ def email_hunt(email):
             if isBot:
                 print("\"Hangouts Bot\" : \"Yes !\"")
                 f = open(result_file,"a", encoding='utf-8')
-                f.write("{{\"Hangouts Bot\" : \"Yes\"}},")
+                f.write("{\"Hangouts_Bot\" : \"Yes\"},")
             else:
                 print("\"Hangouts Bot\" : \"No\"")
                 f = open(result_file,"a", encoding='utf-8')
-                f.write("{{\"Hangouts Bot\" : \"No \"}},")
+                f.write("{\"Hangouts_Bot\" : \"No \"},")
 
         else:
             print("{\"Hangouts Bot\" : \"Unknown\"},")
             f = open(result_file,"a", encoding='utf-8')
-            f.write("{\"Hangouts Bot\" : \"Unknown\"},")
+            f.write("{\"Hangouts_Bot\" : \"Unknown\"},")
 
 
         # decide to check YouTube
@@ -213,7 +213,7 @@ def email_hunt(email):
             if not data:
                 print("[-] \"YouTube channel not found.\"")
                 f = open(result_file,"a", encoding='utf-8')
-                f.write(f"{{\"YouTube channel\" : \"Not found\"}},")
+                f.write(f"{{\"YouTube_channel\" : \"Not found\"}},")
             else:
                 confidence, channels = ytb.get_confidence(data, name, profile_pic_flathash)
                 
