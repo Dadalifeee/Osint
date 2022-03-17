@@ -33,11 +33,10 @@
             >
               <h2 class="title text-center">À propos</h2>
               <h5 class="description">
-                Nous avons remarqué que la plupart des solutions web d’osint était payante nous avons voulu rendre cela accessible et ludique.
-
-L'intérêt d’un tel outils est de retrouver toute les infos et avoir conscience de où est placé notre data,
-vérifier s' il y a de la falsification de données.
-Cela permet aussi d’avoir une certaine gouvernance de nos données.
+                Bienvenue sur notre projet, notre objectif est de facilité l’attaque de reconnaissance en rassemblant plusieurs outils d’OSINT (TheHarvester, Ghunt, Sherlock, Virustotal).
+                Il suffit de rentrer un nom de domaine et Thalos s’occupe du reste, 
+                une fois la recherche effectuer THALOS exécutera d’autre outils d’OSINT afin de compléter votre recherche 
+                pour vous apporter un maximum d’information pour sécuriser votre nom de domaine.
               </h5>
             </div>
           </div>
@@ -61,11 +60,9 @@ Cela permet aussi d’avoir une certaine gouvernance de nos données.
                   <div class="icon icon-success">
                     <md-icon>verified_user</md-icon>
                   </div>
-                  <h4 class="info-title">Verified Users</h4>
+                  <h4 class="info-title">Respect des Lois</h4>
                   <p>
-                    Divide details about your product or agency work into parts.
-                    Write a few lines about each one. A paragraph describing a
-                    feature will be enough.
+                    Notre projet respect les lois sur la protection des données publique.
                   </p>
                 </div>
               </div>
@@ -74,11 +71,9 @@ Cela permet aussi d’avoir une certaine gouvernance de nos données.
                   <div class="icon icon-danger">
                     <md-icon>fingerprint</md-icon>
                   </div>
-                  <h4 class="info-title">Fingerprint</h4>
+                  <h4 class="info-title">Uniquement Publique</h4>
                   <p>
-                    Divide details about your product or agency work into parts.
-                    Write a few lines about each one. A paragraph describing a
-                    feature will be enough.
+                     Les données qui sont retournée sont toute publique et libre d'accès sur internet.
                   </p>
                 </div>
               </div>
@@ -91,6 +86,8 @@ Cela permet aussi d’avoir une certaine gouvernance de nos données.
           <h2 class="title">Here is our team</h2>
           <div class="team">
             <div class="md-layout">
+
+
               <div class="md-layout-item md-medium-size-33 md-small-size-100">
                 <div class="team-player">
                   <md-card class="md-card-plain">
@@ -102,9 +99,9 @@ Cela permet aussi d’avoir une certaine gouvernance de nos données.
                       />
                     </div>
                     <h4 class="card-title">
-                      Gigi Hadid
+                      Joel
                       <br />
-                      <small class="card-description text-muted">Model</small>
+                      <small class="card-description text-muted">Developpeur</small>
                     </h4>
 
                     <md-card-content>
@@ -115,30 +112,10 @@ Cela permet aussi d’avoir une certaine gouvernance de nos données.
                         to be able to follow them outside the site.
                       </p>
                     </md-card-content>
-
-                    <md-card-actions class="text-center">
-                      <md-button
-                        href="javascript:void(0)"
-                        class="md-just-icon md-simple"
-                      >
-                        <i class="fab fa-twitter"></i>
-                      </md-button>
-                      <md-button
-                        href="javascript:void(0)"
-                        class="md-just-icon md-simple"
-                      >
-                        <i class="fab fa-instagram"></i>
-                      </md-button>
-                      <md-button
-                        href="javascript:void(0)"
-                        class="md-just-icon md-simple"
-                      >
-                        <i class="fab fa-facebook-square"></i>
-                      </md-button>
-                    </md-card-actions>
                   </md-card>
                 </div>
               </div>
+
               <div class="md-layout-item md-medium-size-33 md-small-size-100">
                 <div class="team-player">
                   <md-card class="md-card-plain">
@@ -150,10 +127,10 @@ Cela permet aussi d’avoir une certaine gouvernance de nos données.
                       />
                     </div>
                     <h4 class="card-title">
-                      Carla Hortensia
+                      Joe 
                       <br />
                       <small class="card-description text-muted"
-                        >Designer</small
+                        >Developpeur</small
                       >
                     </h4>
 
@@ -183,6 +160,7 @@ Cela permet aussi d’avoir une certaine gouvernance de nos données.
                   </md-card>
                 </div>
               </div>
+
               <div class="md-layout-item md-medium-size-33 md-small-size-100">
                 <div class="team-player">
                   <md-card class="md-card-plain">
@@ -194,9 +172,11 @@ Cela permet aussi d’avoir une certaine gouvernance de nos données.
                       />
                     </div>
                     <h4 class="card-title">
-                      Kendall Jenner
+                      abdoulaye
                       <br />
-                      <small class="card-description text-muted">Model</small>
+                      <small class="card-description text-muted"
+                        >Developpeur</small
+                      >
                     </h4>
 
                     <md-card-content>
@@ -208,26 +188,155 @@ Cela permet aussi d’avoir une certaine gouvernance de nos données.
                       </p>
                     </md-card-content>
 
-                    <md-card-actions class="text-center">
-                      <md-button
-                        href="javascript:void(0)"
-                        class="md-just-icon md-simple"
-                      >
-                        <i class="fab fa-twitter"></i>
-                      </md-button>
-                      <md-button
-                        href="javascript:void(0)"
-                        class="md-just-icon md-simple"
-                      >
-                        <i class="fab fa-instagram"></i>
-                      </md-button>
-                      <md-button
-                        href="javascript:void(0)"
-                        class="md-just-icon md-simple"
-                      >
-                        <i class="fab fa-facebook-square"></i>
-                      </md-button>
-                    </md-card-actions>
+                  </md-card>
+                </div>
+              </div>
+
+              
+
+
+              <div class="md-layout-item md-medium-size-33 md-small-size-100">
+                <div class="team-player">
+                  <md-card class="md-card-plain">
+                    <div class="md-layout-item md-size-50 mx-auto">
+                      <img
+                        :src="teamImg4"
+                        alt="Thumbnail Image"
+                        class="img-raised rounded-circle img-fluid"
+                      />
+                    </div>
+                    <h4 class="card-title">
+                      Marwan
+                      <br />
+                      <small class="card-description text-muted">Developpeur</small>
+                    </h4>
+
+                    <md-card-content>
+                      <p class="card-description">
+                        You can write here details about one of your team
+                        members. You can give more details about what they do.
+                        Feel free to add some <a href="#">links</a> for people
+                        to be able to follow them outside the site.
+                      </p>
+                    </md-card-content>
+
+                  </md-card>
+                </div>
+              </div>
+            </div>
+          
+            <div class="md-layout">
+              <div class="md-layout-item md-medium-size-33 md-small-size-100">
+                <div class="team-player">
+                  <md-card class="md-card-plain">
+                    <div class="md-layout-item md-size-50 mx-auto">
+                      <img
+                        :src="teamImg5"
+                        alt="Thumbnail Image"
+                        class="img-raised rounded-circle img-fluid"
+                      />
+                    </div>
+                    <h4 class="card-title">
+                      Gigi Hadid
+                      <br />
+                      <small class="card-description text-muted">Developpeur</small>
+                    </h4>
+
+                    <md-card-content>
+                      <p class="card-description">
+                        You can write here details about one of your team
+                        members. You can give more details about what they do.
+                        Feel free to add some <a href="#">links</a> for people
+                        to be able to follow them outside the site.
+                      </p>
+                    </md-card-content>
+                  </md-card>
+                </div>
+              </div>
+
+              <div class="md-layout-item md-medium-size-33 md-small-size-100">
+                <div class="team-player">
+                  <md-card class="md-card-plain">
+                    <div class="md-layout-item md-size-50 mx-auto">
+                      <img
+                        :src="teamImg6"
+                        alt="Thumbnail Image"
+                        class="img-raised rounded-circle img-fluid"
+                      />
+                    </div>
+                    <h4 class="card-title">
+                      Matthias
+                      <br />
+                      <small class="card-description text-muted">Developpeur</small >
+                    </h4>
+
+                    <md-card-content>
+                      <p class="card-description">
+                        You can write here details about one of your team
+                        members. You can give more details about what they do.
+                        Feel free to add some <a href="#">links</a> for people
+                        to be able to follow them outside the site.
+                      </p>
+                    </md-card-content>
+                  </md-card>
+                </div>
+              </div>
+
+              <div class="md-layout-item md-medium-size-33 md-small-size-100">
+                <div class="team-player">
+                  <md-card class="md-card-plain">
+                    <div class="md-layout-item md-size-50 mx-auto">
+                      <img
+                        :src="teamImg7"
+                        alt="Thumbnail Image"
+                        class="img-raised rounded-circle img-fluid"
+                      />
+                    </div>
+                    <h4 class="card-title">
+                      Thomas
+                      <br />
+                      <small class="card-description text-muted">Developpeur</small>
+                    </h4>
+
+                    <md-card-content>
+                      <p class="card-description">
+                        You can write here details about one of your team
+                        members. You can give more details about what they do.
+                        Feel free to add some <a href="#">links</a> for people
+                        to be able to follow them outside the site.
+                      </p>
+                    </md-card-content>
+                  </md-card>
+                </div>
+              </div>
+
+              
+
+
+              <div class="md-layout-item md-medium-size-33 md-small-size-100">
+                <div class="team-player">
+                  <md-card class="md-card-plain">
+                    <div class="md-layout-item md-size-50 mx-auto">
+                      <img
+                        :src="teamImg8"
+                        alt="Thumbnail Image"
+                        class="img-raised rounded-circle img-fluid"
+                      />
+                    </div>
+                    <h4 class="card-title">
+                     Mattis
+                      <br />
+                      <small class="card-description text-muted">Developpeur</small>
+                    </h4>
+
+                    <md-card-content>
+                      <p class="card-description">
+                        You can write here details about one of your team
+                        members. You can give more details about what they do.
+                        Feel free to add some <a href="#">links</a> for people
+                        to be able to follow them outside the site.
+                      </p>
+                    </md-card-content>
                   </md-card>
                 </div>
               </div>
@@ -235,6 +344,7 @@ Cela permet aussi d’avoir une certaine gouvernance de nos données.
           </div>
         </div>
       </div>
+
       <div class="section section-contacts">
         <div class="container">
           <div class="md-layout">
@@ -289,16 +399,36 @@ export default {
     },
     teamImg1: {
       type: String,
-      default: require("@/assets/img/faces/avatar.jpg")
+      default: require("@/assets/img/faces/joel.png")
     },
     teamImg2: {
       type: String,
-      default: require("@/assets/img/faces/christian.jpg")
+      default: require("@/assets/img/faces/joe.png")
     },
     teamImg3: {
       type: String,
-      default: require("@/assets/img/faces/kendall.jpg")
-    }
+      default: require("@/assets/img/faces/abdoulaye.png")
+    },
+    teamImg4: {
+      type: String,
+      default: require("@/assets/img/faces/marwan.png")
+    },
+    teamImg5: {
+      type: String,
+      default: require("@/assets/img/faces/unknown.png")
+    },
+    teamImg6: {
+      type: String,
+      default: require("@/assets/img/faces/matthias.png")
+    },
+    teamImg7: {
+      type: String,
+      default: require("@/assets/img/faces/thomas.png")
+    },
+    teamImg8: {
+      type: String,
+      default: require("@/assets/img/faces/Matt.png")
+    },
   },
   data() {
     return {
