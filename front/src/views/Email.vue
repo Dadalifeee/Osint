@@ -37,7 +37,7 @@
                   <br>
                   <p v-if="erreur === true" class="text-danger">Le format du mail n'est pas bon essayez sous la forme(exemple@gmail.com)</p>
                   <input type="radio" id="one" value="1" v-model="picked">
-                  <label for="one">Chercher adresse google(gmail)</label>
+                  <label for="one">Chercher adresse google (gmail)</label>
                   <br>
                   <input type="radio" id="two" value="2" v-model="picked">
                   <label for="two">Autre</label>
@@ -133,11 +133,13 @@ export default {
             }
           }
           this.erreur = false
+          if(response.data == false) {
+            this.erreur = true
+          }
         })
         .catch((e) => {
-          console.log(e);;
+          console.log(e);
           this.erreur = true
-
         });
       }else if(this.picked == 2) {
         axios

@@ -60,7 +60,7 @@
         <div v-show="isOpenLinkedin">
           <md-table>
             <md-table-row>
-              <md-table-head>IP</md-table-head>
+              <md-table-head>Linkedin</md-table-head>
             </md-table-row>
             
             <md-table-row v-for="(harvest, index) in dataTheHarvester.linkedin_people" :key="index">

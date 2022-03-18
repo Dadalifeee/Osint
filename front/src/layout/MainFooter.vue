@@ -10,6 +10,11 @@
         Tahos
         for a better web.
       </div>
+      <div class="doc">
+        <router-link to="doc">
+          <p>Documentation</p>
+        </router-link>
+      </div>
     </div>
   </footer>
 </template>
