@@ -21,7 +21,7 @@
             >
               <h2 class="title text-center">Domain Search</h2>
               <h5 class="description">
-                Chercher des adresses ip des mails des noms de personnes de l'entreprise depuis un nom de domaine
+                Chercher des informations depuis une nom de domaine
               </h5>
             </div>
           </div>
@@ -32,7 +32,7 @@
                   <md-field>
                     <md-input v-model="inputDomaine" placeholder="Domaine"></md-input>
                   </md-field>
-                  <md-button class="md-raised md-success mt-3" v-on:click="sendDomain()"
+                  <md-button :disabled="!validateInput()" class="md-raised md-success mt-3" v-on:click="sendDomain()"
                     >Search</md-button
                   >
                 </div>
@@ -77,6 +77,7 @@ export default {
    components: {
     TableVueDomain,
   },
+  
   data() {
     return {
       name: null,
@@ -93,6 +94,28 @@ export default {
       };
     }
   },
+  created() {
+  axios.interceptors.request.use((config) => {
+      // trigger 'loading=true' event here
+      return config;
+    }, (error) => {
+      // trigger 'loading=false' event here
+      return Promise.reject(error);
+    });
+
+    axios.interceptors.response.use((response) => {
+      // trigger 'loading=false' event here
+      return response;
+    }, (error) => {
+      // trigger 'loading=false' event here
+      return Promise.reject(error);
+    })
+  },
+  watch:{
+    inputDomaine() {
+      this.validateInput(this.inputDomaine);
+    }
+  },
   methods: {
     sendDomain() {
       axios
@@ -107,6 +130,12 @@ export default {
           console.log(e);;
         });
     },
+    validateInput(input){
+      var regex = new RegExp('^(http(s)?://)?[a-zA-Z0-9]+.((fr)|(com))$') ;
+      var test = regex.test(input);
+      console.log("test : " + test)
+      return test;
+    }
   }
 };
 </script>

@@ -1,6 +1,7 @@
 <template lang="">
   <div>
-    <div @click="isOpenAsns = !isOpenAsns">
+    <div v-if="dataTheHarvester !== false">
+      <div @click="isOpenAsns = !isOpenAsns">
       <b>Donnée Asns</b>
       <collapse-transition>
         <div v-show="isOpenAsns">
@@ -105,16 +106,19 @@
         </div>
       </collapse-transition>
     </div>
-    
   </div>
+  <div v-else-if="dataTheHarvester === false">
+    <p>Erreur veuillez réessayer</p>
+  </div>
+</div>
   
 </template>
 <script>
-import { CollapseTransition } from "@ivanv/vue-collapse-transition"
+import { CollapseTransition } from "@ivanv/vue-collapse-transition";
 
 export default {
   components: {
-    CollapseTransition
+    CollapseTransition,
   },
   props: {
     dataTheHarvester: {
@@ -129,7 +133,7 @@ export default {
       isOpenHost: false,
       isOpenIp: false,
       isOpenLinkedin: false,
-      isOpenShodan: false
+      isOpenShodan: false,
     };
   },
 };

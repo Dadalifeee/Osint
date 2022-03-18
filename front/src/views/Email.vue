@@ -29,17 +29,29 @@
               <div class="md-layout-item md-size-66 mx-auto">
                 <div class="form-group text-center">
                   <md-field>
-              <md-input v-model="inputEmail" placeholder="Email"></md-input>
-            </md-field>
-            <md-button class="md-raised md-success mt-3" v-on:click="sendEmail()"
-              >Search</md-button
-            >
+                    <md-input v-model="inputEmail" placeholder="Email"></md-input>
+                  </md-field>
+                  <md-button class="md-raised md-success mt-3" v-on:click="sendEmail()"
+                    >Search</md-button
+                  >
+                  <br>
+                  <input type="radio" id="one" value="1" v-model="picked">
+                  <label for="one">Chercher adresse google(gmail)</label>
+                  <br>
+                  <input type="radio" id="two" value="2" v-model="picked">
+                  <label for="two">Autre</label>
                 </div>
+                
               </div>
             </div>
           </div>
           <TableVueEmail
+            v-if="picked == 1"
             :dataEmail="dataEmailPreview"
+          />
+           <TableVueEmailHolehe
+            v-if="picked == 2"
+            :dataEmail="dataEmailHolehe"
           />
         </div>
       </div>
@@ -50,6 +62,7 @@
 
 <script>
 import TableVueEmail from "./components/TableVueEmail";
+import TableVueEmailHolehe from "./components/TableVueEmailHolehe";
 import axios from "axios";
  
 export default {
@@ -74,6 +87,7 @@ export default {
   },
    components: {
     TableVueEmail,
+    TableVueEmailHolehe
   },
   data() {
     return {
@@ -83,6 +97,8 @@ export default {
       inputEmail: null,
       dataEmail: null,
       dataEmailPreview: [],
+      dataEmailHolehe: [],
+      picked: 1
     };
   },
   computed: {
@@ -94,7 +110,8 @@ export default {
   },
   methods: {
     sendEmail() {
-      axios
+      if(this.picked == 1) {
+        axios
         .get(`http://127.0.0.1:5000/api/email/${this.inputEmail}`)
         .then((response) => {
           console.log(response.data);
@@ -110,6 +127,17 @@ export default {
         .catch((e) => {
           console.log(e);;
         });
+      }else if(this.picked == 2) {
+        axios
+        .get(`http://127.0.0.1:5000/api/mail/${this.inputEmail}`)
+        .then((response) => {
+          console.log(response.data);
+          this.dataEmailHolehe = response.data
+        })
+        .catch((e) => {
+          console.log(e);;
+        });
+      }
     },
   }
 };
