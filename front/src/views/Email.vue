@@ -35,7 +35,7 @@
                     >Search</md-button
                   >
                   <br>
-                  <p v-if="erreur === true" class="text-danger">Le format du domaine n'est pas bon essayez sous la forme (exemple.com)</p>
+                  <p v-if="erreur === true" class="text-danger">Le format du mail n'est pas bon essayez sous la forme(exemple@gmail.com)</p>
                   <input type="radio" id="one" value="1" v-model="picked">
                   <label for="one">Chercher adresse google(gmail)</label>
                   <br>

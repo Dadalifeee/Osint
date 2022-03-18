@@ -14,12 +14,6 @@
 
             </h4>
             <br />
-            <md-button
-              href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-              class="md-success md-lg"
-              target="_blank"
-              ><i class="fas fa-play"></i> Watch video</md-button
-            >
           </div>
         </div>
       </div>
@@ -42,20 +36,7 @@
           </div>
           <div class="features text-center">
             <div class="md-layout">
-              <div class="md-layout-item md-medium-size-33 md-small-size-100">
-                <div class="info">
-                  <div class="icon icon-info">
-                    <md-icon>chat</md-icon>
-                  </div>
-                  <h4 class="info-title">Free Chat</h4>
-                  <p>
-                    Divide details about your product or agency work into parts.
-                    Write a few lines about each one. A paragraph describing a
-                    feature will be enough.
-                  </p>
-                </div>
-              </div>
-              <div class="md-layout-item md-medium-size-33 md-small-size-100">
+              <div class="md-layout-item md-medium-size-50 md-small-size-100">
                 <div class="info">
                   <div class="icon icon-success">
                     <md-icon>verified_user</md-icon>
@@ -66,7 +47,7 @@
                   </p>
                 </div>
               </div>
-              <div class="md-layout-item md-medium-size-33 md-small-size-100">
+              <div class="md-layout-item md-medium-size-50 md-small-size-100">
                 <div class="info">
                   <div class="icon icon-danger">
                     <md-icon>fingerprint</md-icon>
