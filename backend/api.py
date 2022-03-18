@@ -47,7 +47,7 @@ def show_pseudo(pseudo):
     
 @app.route('/api/email/<email>', methods=['GET'])
 def find_by_mail(email):
-    check = re.search('^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$', email)
+    check = re.search('^[\w\.]+@([\w-]+\.)+[\w-]{2,4}$', email)
     if check:
         command = f"cd email && python3 ghunt.py email {email}"
         os.popen(command).read()
@@ -71,7 +71,7 @@ def virus_total(url):
 
 @app.route('/api/mail/<mail>', methods=['GET'])
 async def mail_holehe(mail):
-    check = re.search('^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$', mail)
+    check = re.search('^[\w\.]+@([\w-]+\.)+[\w-]{2,4}$', mail)
     if check:
         command = f"cd holehe && holehe {mail}"
         ret = subprocess.run(command, capture_output=True, shell=True)

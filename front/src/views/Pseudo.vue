@@ -18,7 +18,7 @@
             <div
               class="md-layout-item md-size-66 md-xsmall-size-100 mx-auto text-center"
             >
-              <h2 class="title text-center">Pseudo Search</h2>
+              <h2 class="title text-center">Recherche par pseudo</h2>
               <h5 class="description">
                 Chercher pseudo
               </h5>
@@ -34,6 +34,15 @@
             <md-button class="md-raised md-success mt-3" v-on:click="sendPseudo()"
               >Search</md-button
             >
+            <p v-if="erreur === true" class="text-danger">Le format du pseudo n'est pas bon , caractère speciaux interdit</p>
+
+            <br>
+            <a href="javascript:window.print()">
+              <md-button v-if="dataPseudo !== null" class="md-raised md-success mt-3"
+              >Imprimer</md-button
+            >
+            </a>
+           
                 </div>
               </div>
             </div>
@@ -82,6 +91,7 @@ export default {
       message: null,
       inputPseudo: null,
       dataPseudo: null,
+      erreur: false,
     };
   },
   computed: {
@@ -98,9 +108,14 @@ export default {
         .then((response) => {
           console.log(response.data);
           this.dataPseudo = response.data.replace(/[[+]]/g, "<br>")
+          this.dataPseudo = this.dataPseudo.replace('[', '')
+          this.erreur = false
+
         })
         .catch((e) => {
           console.log(e);;
+          this.erreur = true
+
         });
     },
   }

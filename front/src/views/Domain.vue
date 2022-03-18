@@ -19,7 +19,7 @@
             <div
               class="md-layout-item md-size-66 md-xsmall-size-100 mx-auto text-center"
             >
-              <h2 class="title text-center">Domain Search</h2>
+              <h2 class="title text-center">Recherche par domaine</h2>
               <h5 class="description">
                 Chercher des informations depuis une nom de domaine
               </h5>
@@ -35,6 +35,14 @@
                   <md-button :disabled="!validateInput()" class="md-raised md-success mt-3" v-on:click="sendDomain()"
                     >Search</md-button
                   >
+                  <p v-if="erreur === true" class="text-danger">Le format du domaine n'est pas bon essayez sous la forme (exemple.com)</p>
+                  <br>
+                  <a href="javascript:window.print()">
+                    <md-button v-if="dataTheHarvester !== null" class="md-raised md-success mt-3"
+                    >Imprimer</md-button
+                  >
+                  </a>
+
                 </div>
               </div>
             </div>
@@ -72,6 +80,10 @@ export default {
     teamImg3: {
       type: String,
       default: require("@/assets/img/faces/kendall.jpg")
+    },
+    loader: {
+      type: String,
+      default: require("@/assets/img/loader.gif")
     }
   },
    components: {
@@ -85,6 +97,8 @@ export default {
       message: null,
       inputDomaine: null,
       dataTheHarvester: null,
+      loadActif: false,
+      erreur: false,
     };
   },
   computed: {
@@ -94,27 +108,17 @@ export default {
       };
     }
   },
-  created() {
-  axios.interceptors.request.use((config) => {
-      // trigger 'loading=true' event here
-      return config;
-    }, (error) => {
-      // trigger 'loading=false' event here
-      return Promise.reject(error);
-    });
-
-    axios.interceptors.response.use((response) => {
-      // trigger 'loading=false' event here
-      return response;
-    }, (error) => {
-      // trigger 'loading=false' event here
-      return Promise.reject(error);
-    })
-  },
   watch:{
     inputDomaine() {
       this.validateInput(this.inputDomaine);
     }
+  },
+  created() {
+    axios.interceptors.request.use(function (config) {
+        return config
+    }, function (error) {
+        return Promise.reject(error);
+    });
   },
   methods: {
     sendDomain() {
@@ -124,17 +128,15 @@ export default {
           // JSON responses are automatically parsed.
           console.log(response.data);
           this.dataTheHarvester = response.data
-
+          this.erreur = false
         })
         .catch((e) => {
           console.log(e);;
+          this.erreur = true
         });
     },
-    validateInput(input){
-      var regex = new RegExp('^(http(s)?://)?[a-zA-Z0-9]+.((fr)|(com))$') ;
-      var test = regex.test(input);
-      console.log("test : " + test)
-      return test;
+    validateInput(){
+      return true;
     }
   }
 };
